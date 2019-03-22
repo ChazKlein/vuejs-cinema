@@ -16,7 +16,8 @@
         methods: {
             checkFilter() {
                 this.checked = !this.checked;
-                this.$emit('check-filter', this.category, this.title, this.checked);
+                // Emit it to global bus so that it can be directly used in root instance or anywhere
+                this.$bus.$emit('check-filter', this.category, this.title, this.checked);
             }
         }
     }
